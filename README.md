@@ -6,8 +6,11 @@ This repository demonstrates how to expose tools, resources, and prompts from an
 ## 📁 Repository Structure
 ```text
 .
-├── server.py         # MCP server defining tools, resources, and prompts
-├── requirements.txt  # Python package dependencies
+├── server.py         
+├── client.py         
+├── requirements.txt  
+├── .gitignore        
+└── README.md         
 ```
 
 ## ✨ Features
@@ -17,6 +20,16 @@ This repository demonstrates how to expose tools, resources, and prompts from an
   - `add(a, b)`: Adds two integers.
   - `multiply(a, b)`: Multiplies two integers.
   - `greet(name)`: Returns a personalized greeting string.
+- **Resources**:
+  - `queue://{facility}/status`: Dynamic resource exposing queue status for a given facility.
+- **Prompts**:
+  - `analyze_queue(facility)`: Pre-defined prompt template for evaluating facility bottlenecks and waiting times.
+
+### MCP Client (`client.py`)
+- Spawns the MCP server sub-process over `stdio`.
+- Establishes a `ClientSession`.
+- Automatically retrieves and prints registered server tools and schemas.
+- Demonstrates executing a tool call (`add`) and printing the result.
 
 ## 🚀 Getting Started
 
@@ -43,6 +56,9 @@ This repository demonstrates how to expose tools, resources, and prompts from an
    ```
 
 ## 🧪 Running the Code
+
+Execute the client script to automatically launch the MCP server in a subprocess and execute sample tool calls:
+
 ```bash
-uv run mcp dev server.py
+python client.py
 ```
