@@ -1,0 +1,19 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# IDE & Editor temporary files
+.vscode/
+.idea/
+tempCodeRunnerFile.py
+
+# Logs & Environment variables
+*.log
+.env
